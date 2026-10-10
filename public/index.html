@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commute — live multi-modal routes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow" id="corridorLabel">Loading corridor…</p>
+    <h1 id="corridorName">Commute</h1>
+    <p class="sub">Every mode, one route. Times pulled live where possible.</p>
+  </header>
+
+  <div class="panel" id="inputPanel">
+    <div class="row">
+      <div class="field">
+        <label for="from">Starting from</label>
+        <select id="from"></select>
+      </div>
+      <div class="field">
+        <label for="to">Going to</label>
+        <select id="to"></select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="leave">Leaving at</label>
+        <input type="time" id="leave" value="08:00">
+      </div>
+      <div class="field">
+        <label for="usual">Your usual trip takes (min)</label>
+        <input type="number" id="usual" value="75" min="5" max="240">
+      </div>
+    </div>
+    <button id="go">Find my fastest route</button>
+    <p class="error hidden" id="formError"></p>
+  </div>
+
+  <div id="loading" class="hidden">
+    <p class="loading-line">Checking live traffic and timetables…</p>
+  </div>
+
+  <div id="result" class="hidden"></div>
+
+  <div class="metrics">
+    <h2>Session log</h2>
+    <table id="metricsTable">
+      <tr><td>Searches this session</td><td id="mReq">0</td></tr>
+      <tr><td>Route saved</td><td id="mSave">no</td></tr>
+      <tr><td>Accuracy feedback</td><td id="mFb">none</td></tr>
+    </table>
+  </div>
+
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+node_modules/
+.env
+db/commute.db
+db/commute.db-shm
+db/commute.db-wal

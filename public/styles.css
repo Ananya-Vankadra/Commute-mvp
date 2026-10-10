@@ -1,0 +1,92 @@
+:root{
+  --ink:#101820;
+  --paper:#FBFAF7;
+  --line:#D8D4CC;
+  --signal:#0A6B4F;
+  --signal-soft:#E4F0EA;
+  --warn:#B4531A;
+  --muted:#6B6960;
+  --rail:#2B4A6F;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Archivo",system-ui,-apple-system,sans-serif;
+  line-height:1.5;
+}
+.wrap{max-width:760px;margin:0 auto;padding:28px 20px 72px}
+
+header{border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:26px}
+.eyebrow{font-size:12px;font-family:"IBM Plex Mono",monospace;color:var(--muted);letter-spacing:.02em}
+h1{font-size:30px;font-weight:800;letter-spacing:-.02em;margin:6px 0 4px;line-height:1.1}
+.sub{color:var(--muted);font-size:14px;margin:0}
+
+.panel{border:1px solid var(--line);background:#fff;padding:18px;margin-bottom:22px}
+.field{margin-bottom:14px}
+label{display:block;font-size:13px;font-weight:600;margin-bottom:5px}
+select,input{
+  width:100%;padding:10px 12px;font-size:15px;font-family:inherit;
+  border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:2px;
+}
+select:focus,input:focus{outline:2px solid var(--signal);outline-offset:1px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row .field{flex:1;min-width:180px}
+
+button{
+  font-family:inherit;font-size:15px;font-weight:600;cursor:pointer;
+  background:var(--ink);color:#fff;border:none;padding:12px 20px;border-radius:2px;width:100%;
+}
+button:hover{background:#000}
+button:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+button:disabled{opacity:.5;cursor:not-allowed}
+.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);margin-top:10px}
+.ghost:hover{background:var(--signal-soft)}
+
+.error{color:var(--warn);font-size:13px;margin:10px 0 0}
+.loading-line{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);margin:0 0 20px}
+
+.route-card{border:1px solid var(--line);background:#fff;padding:18px;margin-bottom:14px}
+.route-card.best{border:2px solid var(--ink)}
+.route-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.route-name{font-weight:700;font-size:17px}
+.route-time{font-size:26px;font-weight:800;letter-spacing:-.02em}
+.route-time span{font-size:14px;font-weight:500;color:var(--muted)}
+.route-note{color:var(--muted);font-size:13px;margin:2px 0 0}
+.best-tag{
+  display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11px;
+  background:var(--signal-soft);color:var(--signal);padding:3px 7px;margin-bottom:8px;
+}
+
+.saved-line{
+  display:inline-block;margin-top:10px;background:var(--signal-soft);
+  color:var(--signal);font-weight:600;font-size:13px;padding:5px 9px;
+}
+
+.legs{margin:14px 0 0;padding:0;list-style:none;border-left:2px solid var(--line);margin-left:9px}
+.leg{position:relative;padding:0 0 18px 24px}
+.leg:last-child{padding-bottom:0}
+.dot{
+  position:absolute;left:-8px;top:3px;width:14px;height:14px;border-radius:50%;
+  background:#fff;border:2px solid var(--ink);
+}
+.dot.rail{background:var(--rail);border-color:var(--rail)}
+.dot.wheel{background:var(--signal);border-color:var(--signal)}
+.leg-mode{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted)}
+.leg-route{font-weight:600;font-size:15px;margin:1px 0}
+.leg-meta{font-size:13px;color:var(--muted)}
+.leg-note{font-size:12px;color:var(--warn);margin-top:2px}
+.leg-live{font-size:11px;color:var(--signal);font-family:"IBM Plex Mono",monospace;margin-top:2px}
+
+.feedback{margin-top:14px;display:flex;gap:8px}
+.feedback button{width:auto;flex:1;background:#fff;color:var(--ink);border:1px solid var(--line);font-size:13px;padding:8px}
+.feedback button:hover{background:var(--signal-soft)}
+.thanks{font-size:13px;color:var(--signal);font-weight:600;margin-top:10px}
+
+.metrics{margin-top:30px;border-top:2px solid var(--ink);padding-top:14px}
+.metrics h2{font-size:15px;margin:0 0 10px}
+.metrics table{width:100%;border-collapse:collapse;font-size:14px}
+.metrics td{padding:5px 0;border-bottom:1px solid var(--line)}
+.metrics td:last-child{text-align:right;font-family:"IBM Plex Mono",monospace;font-weight:500}
+.hidden{display:none}

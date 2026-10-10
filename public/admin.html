@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin — corridor data</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  table.admin{width:100%;border-collapse:collapse;font-size:13px;margin-top:14px}
+  table.admin th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);border-bottom:2px solid var(--ink);padding:6px 8px}
+  table.admin td{border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:top}
+  table.admin input{padding:6px 8px;font-size:13px}
+  table.admin button{width:auto;padding:6px 10px;font-size:12px}
+  .stat-grid{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
+  .stat{border:1px solid var(--line);background:#fff;padding:12px 16px;flex:1;min-width:130px}
+  .stat .n{font-size:26px;font-weight:800}
+  .stat .l{font-size:12px;color:var(--muted)}
+  .saved-flash{color:var(--signal);font-size:12px;margin-left:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Admin · no auth in this pilot build</p>
+    <h1>Corridor data</h1>
+    <p class="sub">Edit the numbers real commuters see. Changes apply immediately.</p>
+  </header>
+
+  <div class="panel">
+    <h2 style="margin-top:0;font-size:15px">Pilot metrics</h2>
+    <div class="stat-grid" id="statGrid"></div>
+  </div>
+
+  <div class="panel">
+    <h2 style="margin-top:0;font-size:15px">Segments (bus / shuttle / train legs)</h2>
+    <p class="sub">Walk and auto legs aren't listed here — those come live from Google Maps.</p>
+    <table class="admin" id="segTable">
+      <thead>
+        <tr>
+          <th>Mode</th><th>From → To</th><th>Duration (min)</th>
+          <th>Departures (comma-separated HH:MM)</th><th>Note</th><th></th>
+        </tr>
+      </thead>
+      <tbody id="segBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="/admin.js"></script>
+</body>
+</html>
