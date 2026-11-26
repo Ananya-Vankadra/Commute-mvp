@@ -42,6 +42,19 @@ a key, walk/auto times are estimated from straight-line distance instead
 of real traffic — still usable for testing the product, just less
 accurate.
 
+## Deploying on Render
+
+The root `render.yaml` configures a Node web service, a persistent disk for
+SQLite, and a one-time seed on the first successful deploy. Create a Render
+Blueprint from this repository and provide `ADMIN_USERNAME` and
+`ADMIN_PASSWORD` when prompted. These protect `/admin.html` and `/api/admin/*`.
+You can optionally provide `GOOGLE_MAPS_API_KEY`.
+
+The persistent disk requires a paid Render web service. Keep the service at
+one instance because SQLite and its disk are not shared across instances.
+The seed command only runs on the initial deploy; do not run `npm run seed`
+again on a live database because it resets the corridor data.
+
 ## Project structure
 
 ```
@@ -52,7 +65,7 @@ db/database.js           SQLite connection
 services/googleMaps.js   Live duration lookups, with fallback
 services/routing.js      Combines DB segments + live legs into ranked routes
 routes/api.js             Rider-facing endpoints
-routes/admin.js            Admin endpoints (no auth yet — see note below)
+routes/admin.js            Admin endpoints (protected in server.js)
 public/index.html, app.js, styles.css   Rider frontend
 public/admin.html, admin.js              Admin frontend
 ```
@@ -70,8 +83,8 @@ that's what it's for.
 
 ## Known limitations (intentional, for a Phase 1 pilot)
 
-- **No authentication** — matches the roadmap's "no auth" pilot phase.
-  Add a login check to `routes/admin.js` before this goes anywhere public.
+- **Admin uses HTTP Basic authentication** — configure `ADMIN_USERNAME` and
+  `ADMIN_PASSWORD` in production before accessing the admin page.
 - **One corridor only** — the frontend loads whichever corridor comes
   back first from `/api/corridors`.
 - **SQLite** — fine for a 30–50 person pilot, not for real concurrent

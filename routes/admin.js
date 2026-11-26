@@ -1,6 +1,3 @@
-// No auth in Phase 1, matching the roadmap ("no auth" for the pilot admin
-// panel). Add a login check here before this ever goes on the public internet.
-
 const express = require('express');
 const db = require('../db/database');
 
